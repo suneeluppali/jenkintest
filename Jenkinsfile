@@ -33,6 +33,15 @@ pipeline {
             echo 'Deploying....'
           }
         }
+        stage('Java 9') {
+          agent {
+            label 'jdk9'
+          }
+          steps {
+            sh 'java -version'
+            sleep(time: 20, unit: 'SECONDS')
+          }
+        }
       }
     }
   }
